@@ -19,7 +19,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ManyToManyField(Categorie,related_name='Categories')
     principal_image = models.ImageField('Principal Image',null=True, blank=True)
-    images_related = models.ManyToManyField(Images,null=True,blank=True,upload_to='images')
+    images_related = models.ManyToManyField(Images,null=True,blank=True)
     created_at = models.DateField("Created", auto_now_add=True)
     update_at = models.DateField("Updated", auto_now=True)
 
