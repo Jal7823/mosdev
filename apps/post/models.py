@@ -10,7 +10,7 @@ class Categorie(models.Model):
         return self.name
     
 class Images(models.Model):
-    images = models.ImageField('Images')
+    images = models.ImageField('Images',upload_to='multi_images')
     
 
 class Post(models.Model):
@@ -19,7 +19,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ManyToManyField(Categorie,related_name='Categories')
     principal_image = models.ImageField('Principal Image',null=True, blank=True)
-    images_related = models.ManyToManyField(Images)
+    images_related = models.ManyToManyField(Images,null=True,blank=True,upload_to='images')
     created_at = models.DateField("Created", auto_now_add=True)
     update_at = models.DateField("Updated", auto_now=True)
 
