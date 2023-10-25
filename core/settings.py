@@ -94,7 +94,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'seguroMosquera$seguroMosqueraDB',
+            'NAME': 'seguroMosquera$mosdev',
             'USER': 'seguroMosquera',
             'PASSWORD': '23051988joswelj',
             'HOST': 'seguroMosquera.mysql.pythonanywhere-services.com',
