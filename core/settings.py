@@ -99,9 +99,7 @@ else:
             'PASSWORD': '23051988joswelj',
             'HOST': 'seguroMosquera.mysql.pythonanywhere-services.com',
             'PORT': '3306',
-            'OPTIONS': {
-                'sql_mode': 'traditional',
-            }
+
         }
     }
     ############################ PRO #################################
