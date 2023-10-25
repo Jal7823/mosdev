@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from ..models import Post, Categorie
+from apps.post.models import Post, Categorie
 from .serializers import SerializersPost, SerializersCategories
 
 
@@ -8,6 +8,7 @@ class ViewPost(viewsets.ModelViewSet):
     serializer_class = SerializersPost
 
 
-class ViewCategories(viewsets.ModelViewSet):
+class ViewsCategories(viewsets.ModelViewSet):
     queryset = Categorie.objects.all()
     serializer_class = SerializersCategories
+
