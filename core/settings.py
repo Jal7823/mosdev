@@ -94,11 +94,14 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.getenv('NAMEDB'),
-            'USER': os.getenv('USERDB'),
-            'PASSWORD': os.getenv('PASSWORDB'),
-            'HOST': os.getenv('HOSTDB'),
-            'PORT': os.getenv('PORTDB'),
+            'NAME': 'seguroMosquera$seguroMosqueraDB',
+            'USER': 'seguroMosquera',
+            'PASSWORD': '23051988joswelj',
+            'HOST': 'seguroMosquera.mysql.pythonanywhere-services.com',
+            'PORT': '3306',
+            'OPTIONS': {
+                'sql_mode': 'traditional',
+            }
         }
     }
     ############################ PRO #################################
