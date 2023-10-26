@@ -1,1 +1,1 @@
-web: uvicorn main:app --proxy-headers --host=0.0.0.0 --port=${PORT}
+web: uvicorn core.asgi:application --host=0.0.0.0 --port=${PORT}
