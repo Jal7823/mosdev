@@ -19,7 +19,7 @@ INSTALLED_BASE = [
     'django.contrib.staticfiles',
 ]
 
-INSTALLED_LOCAL =[
+INSTALLED_LOCAL = [
     'apps.post',
     'apps.publicity',
 ]
@@ -28,11 +28,13 @@ INSTALLED_THRIDS = [
     'rest_framework',
     'ckeditor',
     'corsheaders',
+    'whitenoise.runserver_nostatic',
 ]
 
 INSTALLED_APPS = INSTALLED_BASE + INSTALLED_LOCAL + INSTALLED_THRIDS
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
@@ -64,7 +66,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 if DEBUG:
-
     ALLOWED_HOSTS = ['*']
 
     DATABASES = {
@@ -74,21 +75,19 @@ if DEBUG:
         }
     }
 
-    ########################### DEV ##################################
-
+    # Configuración de archivos estáticos para entorno de desarrollo
     STATIC_URL = '/static/'
     STATICFILES_DIRS = [
         BASE_DIR / "static",
     ]
 
+    # Almacén de archivos estáticos para desarrollo
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 else:
-
-    # Database
-    # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
     ALLOWED_HOSTS = ['seguroMosquera.pythonanywhere.com']
 
     DATABASES = {
@@ -99,15 +98,40 @@ else:
             'PASSWORD': '3rg0PQYkJayK',
             'HOST': 'ep-yellow-meadow-84409821.us-east-2.aws.neon.fl0.io',
             'PORT': '5432',
-
         }
     }
-    ############################ PRO #################################
+
+    # Configuración de archivos estáticos para entorno de producción
     STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# else:
+#
+#     # Database
+#     # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+#
+#     ALLOWED_HOSTS = ['seguroMosquera.pythonanywhere.com']
+#
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': 'database',
+#             'USER': 'fl0user',
+#             'PASSWORD': '3rg0PQYkJayK',
+#             'HOST': 'ep-yellow-meadow-84409821.us-east-2.aws.neon.fl0.io',
+#             'PORT': '5432',
+#
+#         }
+#     }
+#     ############################ PRO #################################
+#     STATIC_URL = '/static/'
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#
+#     MEDIA_URL = '/media/'
+#     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -141,6 +165,3 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'https://jal7823.github.io/mosDevFrontEnd',
 ]
-
-
-
