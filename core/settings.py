@@ -91,17 +91,17 @@ else:
 
     ALLOWED_HOSTS = ['seguroMosquera.pythonanywhere.com']
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'seguroMosquera$mosdev',
-            'USER': 'seguroMosquera',
-            'PASSWORD': '23051988joswelj',
-            'HOST': 'seguroMosquera.mysql.pythonanywhere-services.com',
-            'PORT': '3306',
-
-        }
-    }
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.postgresql',
+    #         'NAME': 'seguroMosquera$mosdev',
+    #         'USER': 'seguroMosquera',
+    #         'PASSWORD': '23051988joswelj',
+    #         'HOST': 'seguroMosquera.mysql.pythonanywhere-services.com',
+    #         'PORT': '3306',
+    #
+    #     }
+    # }
     ############################ PRO #################################
     STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
