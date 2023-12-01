@@ -1,13 +1,8 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
+from apps.categories.models import Categorie
 
-
-class Categorie(models.Model):
-    name = models.CharField('Name', max_length=50)
-
-    def __str__(self):
-        return f'{self.name}'
 
 
 class Images(models.Model):

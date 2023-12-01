@@ -1,5 +1,6 @@
 from rest_framework import viewsets
-from apps.post.models import Post, Categorie
+from apps.post.models import Post
+from apps.categories.models import Categorie
 from .serializers import SerializersPost, SerializersCategories
 
 

@@ -22,6 +22,7 @@ INSTALLED_BASE = [
 INSTALLED_LOCAL = [
     'apps.post',
     'apps.publicity',
+    'apps.categories',
 ]
 
 INSTALLED_THRIDS = [
@@ -29,6 +30,7 @@ INSTALLED_THRIDS = [
     'ckeditor',
     'corsheaders',
     'whitenoise.runserver_nostatic',
+    'drf_spectacular',
 ]
 
 INSTALLED_APPS = INSTALLED_BASE + INSTALLED_LOCAL + INSTALLED_THRIDS
@@ -163,5 +165,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
-    'https://jal7823.github.io/mosDevFrontEnd',
+    # 'https://jal7823.github.io/mosDevFrontEnd',
 ]
+
+
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Your Project API',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}

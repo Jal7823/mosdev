@@ -3,4 +3,4 @@ from .models import Post,Categorie,Images
 
 
 
-admin.site.register([Post,Categorie,Images])
+admin.site.register([Post,Images])
