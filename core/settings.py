@@ -29,7 +29,6 @@ INSTALLED_THRIDS = [
     'rest_framework',
     'ckeditor',
     'corsheaders',
-    'whitenoise.runserver_nostatic',
     'drf_spectacular',
 ]
 
@@ -77,63 +76,39 @@ if DEBUG:
         }
     }
 
-    # Configuración de archivos estáticos para entorno de desarrollo
     STATIC_URL = '/static/'
     STATICFILES_DIRS = [
         BASE_DIR / "static",
     ]
 
-    # Almacén de archivos estáticos para desarrollo
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 else:
-    ALLOWED_HOSTS = ['seguroMosquera.pythonanywhere.com']
+    ALLOWED_HOSTS = ['moisesm23.pythonanywhere.com']
 
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'database',
-            'USER': 'fl0user',
-            'PASSWORD': '3rg0PQYkJayK',
-            'HOST': 'ep-yellow-meadow-84409821.us-east-2.aws.neon.fl0.io',
-            'PORT': '5432',
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'moisesM23$default',
+            'USER': 'moisesM23',
+            'PASSWORD': '23051988joswelj',
+            'HOST': 'moisesM23.mysql.pythonanywhere-services.com',
+            'PORT': '3306',
+            'OPTIONS': {
+                'sql_mode': 'traditional',
+            }
         }
     }
 
-    # Configuración de archivos estáticos para entorno de producción
     STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# else:
-#
-#     # Database
-#     # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-#
-#     ALLOWED_HOSTS = ['seguroMosquera.pythonanywhere.com']
-#
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql',
-#             'NAME': 'database',
-#             'USER': 'fl0user',
-#             'PASSWORD': '3rg0PQYkJayK',
-#             'HOST': 'ep-yellow-meadow-84409821.us-east-2.aws.neon.fl0.io',
-#             'PORT': '5432',
-#
-#         }
-#     }
-#     ############################ PRO #################################
-#     STATIC_URL = '/static/'
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#
-#     MEDIA_URL = '/media/'
-#     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
